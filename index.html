@@ -5,9 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE-edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic Tac Toe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/STYLES/styles.css" />
   </head>
   <body>
-    <header>
+    <header id="main-header">
       <h1>Play Tic Tac Toe</h1>
       <p>Build with HTML, CSS, JS and - of course - lots of love!</p>
     </header>
@@ -20,8 +26,8 @@
             <input type="text" name="username" id="playername" />
           </div>
           <div>
-            <button type="button">Cancel</button>
-            <button type="submit">Confirm</button>
+            <button type="button" class="btn btn-alt">Cancel</button>
+            <button type="submit" class="btn">Confirm</button>
           </div>
         </form>
       </aside>
@@ -32,7 +38,7 @@
             <h2>Player 1</h2>
             <h3>PLAYER NAME</h3>
             <p>X</p>
-            <button>Edit</button>
+            <button class="btn btn-alt">Edit</button>
           </article>
         </li>
         <li>
@@ -40,15 +46,15 @@
             <h2>Player 2</h2>
             <h3>PLAYER NAME</h3>
             <p>O</p>
-            <button>Edit</button>
+            <button class="btn btn-alt">Edit</button>
           </article>
         </li>
       </ol>
-      <button>Start New Game</button>
+      <button class="btn">Start New Game</button>
       <section id="active-game">
         <article>
-            <h3>You won, <span id="winner-name">PLAYER NAME</span>!</h3>
-            <p>Click "Start New Game" above, to start a new game!</p>
+          <h3>You won, <span id="winner-name">PLAYER NAME</span>!</h3>
+          <p>Click "Start New Game" above, to start a new game!</p>
         </article>
         <p>It'your turn <span id="active-player-name">PLAYER NAME</span>!</p>
         <ol>
