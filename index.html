@@ -9,13 +9,10 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
       rel="stylesheet" />
-    <link rel="stylesheet" href="styles/styles.css" />
-    <link rel="stylesheet" href="styles/overlays.css" />
-    <link rel="stylesheet" href="styles/configuration.css" />
-    <link rel="stylesheet" href="styles/game.css" />
-    <script src="scripts/config.js" defer></script>
-    <script src="scripts/game.js" defer></script>
-    <script src="scripts/app.js" defer></script>
+    <link rel="stylesheet" href="/STYLES/styles.css" />
+    <link rel="stylesheet" href="/STYLES/overlays.css" />
+    <link rel="stylesheet" href="/STYLES/configuration.css" />
+    <link rel="stylesheet" href="/STYLES/game.css" />
   </head>
   <body>
     <div id="backdrop"></div>
@@ -67,17 +64,17 @@
         </article>
         <p>It's your turn <span id="active-player-name">PLAYER NAME</span>!</p>
         <ol id="game-board">
-          <li></li>
-          <li></li>
-          <li></li>
-
-          <li></li>
-          <li></li>
+          <li class="disabled">O</li>
+          <li class="disabled">X</li>
           <li></li>
 
           <li></li>
           <li></li>
+          <li class="disabled">O</li>
+
           <li></li>
+          <li></li>
+          <li class="disabled">X</li>
         </ol>
       </section>
     </main>
