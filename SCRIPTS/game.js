@@ -1,8 +1,31 @@
+function resetGameStatus() {
+  activePlayer = 0;
+  currentRound = 1;
+  gameIsOver = false;
+  gameOverElement.firstElementChild.inerHTML =
+    "You won, <span id='winner-name'>PLAYER NAME</span>!";
+  gameOverElement.style.display = "none";
+
+  let gameBoardIndex = 0;
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+      gameData[i][j] = 0;
+      gameBoardItemElement = gameBoardElement.children[gameBoardIndex];
+      gameBoardElement.children[gameBoardIndex].textContent = '';
+      gameBoardItemElement.classList.remove('disabled');
+      gameBoardIndex++;
+    }
+  }
+}
+
 function startNewGame() {
   if (players[0].name === "" || players[1].name === "") {
     alert("Please set custom player names for both players!");
     return;
   }
+
+  resetGameStatus();
+
   activePlayerNameElement.textContent = players[activePlayer].name;
   gameAreaElement.style.display = "block";
 }
@@ -15,7 +38,7 @@ function switchPlayer() {
   activePlayerNameElement.textContent = players[activePlayer].name;
 }
 function selectGameField(event) {
-  if (event.target.tagName !== "LI") {
+  if (event.target.tagName !== "LI" || gameIsOver) {
     return;
   }
   const selectGameField = event.target;
@@ -28,10 +51,12 @@ function selectGameField(event) {
   selectGameField.textContent = players[activePlayer].symbol;
   selectGameField.classList.add("disabled");
   gameData[selectedRow][selectedColumn] = activePlayer + 1;
-  console.log(gameData);
 
   const winnerId = checkForGameOver();
-  console.log(winnerId);
+
+  if (winnerId !== 0) {
+    endGame(winnerId);
+  }
 
   currentRound++;
   switchPlayer();
@@ -75,4 +100,16 @@ function checkForGameOver() {
     return -1;
   }
   return 0;
+}
+
+function endGame(winnerId) {
+  gameIsOver = true;
+  gameOverElement.style.display = "block";
+  if (winnerId > 0) {
+    const winnerName = players[winnerId - 1].name;
+    gameOverElement.firstElementChild.firstElementChild.textContent =
+      winnerName;
+  } else {
+    gameOverElement.firstElementChild.textContent = "It's a draw!";
+  }
 }
